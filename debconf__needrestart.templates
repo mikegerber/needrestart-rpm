@@ -1,0 +1,119 @@
+Template: needrestart/ui-query_pkgs_title
+Type: title
+Description: Daemons using outdated libraries
+Description-cs.UTF-8: Procesy služeb, které používají zastaralé knihovny
+Description-de.UTF-8: Dienste, die veraltete Bibliotheken nutzen
+Description-ru.UTF-8: Демоны, использующие устаревшие библиотеки
+
+Template: needrestart/ui-query_pkgs
+Type: multiselect
+Choices: ${PKGS}
+Description: Which services should be restarted?
+Description-cs.UTF-8: Které služby by měly být restartovány?
+Description-de.UTF-8: Welche Dienste sollen neu gestartet werden?
+Description-ru.UTF-8: Какие службы должны быть перезапущены?
+
+Template: needrestart/ui-kernel_announce_abi
+Type: note
+Description: Newer kernel available
+ The currently running kernel version is ${KVERSION} and there is an ABI
+ compatible upgrade pending.
+ .
+ Restarting the system to load the new kernel will not be handled
+ automatically, so you should consider rebooting.
+Description-cs.UTF-8: Je k dispozici novější verze jádra
+ Nyní je provozováno na jádru verze ${KVERSION} a přitom je k dispozici aktualizace, která zachovává kompatibilní ABI rozhraní.
+ .
+ Restart systému pro načtení nového jádra nebude obsloužen automaticky, takže byste měli zvážit restart stroje.
+Description-de.UTF-8: Neuer Kernel vorhanden
+ Für die aktuelle Kernel-Version ${KVERSION} ist ein ABI-kompatibles Update vorhanden.
+ .
+ Das System wird nicht automatisch neu gestartet, um den neuen Kernel zu laden. Ein Neustart sollte durchgeführt werden.
+Description-ru.UTF-8: Доступно новое ядро
+ Версия текущего ядра: ${KVERSION}, имеется незаконченное обновление, несовместимое на уровне ABI.
+ .
+ Перезапуск системы для загрузки нового ядра не производится автоматически, поэтому запланируйте перезагрузку.
+
+Template: needrestart/ui-kernel_announce_ver
+Type: note
+Description: Newer kernel available
+ The currently running kernel version is ${KVERSION} which is not the
+ expected kernel version ${EVERSION}.
+ .
+ Restarting the system to load the new kernel will not be handled
+ automatically, so you should consider rebooting.
+Description-cs.UTF-8: Je k dispozici novější verze jádra
+ Nyní provozovaná verze jádra je ${KVERSION}, což není očekávaná verze ${EVERSION}.
+ .
+ Restart systému pro načtení nového jádra nebude obsloužen automaticky, takže byste měli zvážit restart stroje.
+Description-de.UTF-8: Neuer Kernel vorhanden
+ Die aktuelle Kernel-Version ist ${KVERSION}, es wird jedoch die Version ${EVERSION} erwartet.
+ .
+ Das System wird nicht automatisch neu gestartet, um den neuen Kernel zu laden. Ein Neustart sollte durchgeführt werden.
+Description-ru.UTF-8: Доступно новое ядро
+ Версия текущего ядра: ${KVERSION}, что отлично от ожидаемой версии ${EVERSION}.
+ .
+ Перезапуск системы для загрузки нового ядра не производится автоматически, поэтому запланируйте перезагрузку.
+
+Template: needrestart/ui-kernel_title
+Type: title
+Description: Pending kernel upgrade
+Description-cs.UTF-8: Čekající aktualizace jádra
+Description-de.UTF-8: Ausstehendes Kernel-Upgrade
+Description-ru.UTF-8: Ожидается обновление ядра
+
+Template: needrestart/ui-ehint_title
+Type: title
+Description: Restart pending...
+Description-cs.UTF-8: Čekající restart…
+Description-de.UTF-8: Ausstehender Neustart...
+Description-ru.UTF-8: Ожидается перезапуск...
+
+Template: needrestart/ui-ehint_announce
+Type: note
+Description: This system runs ${EHINT} - you should consider rebooting!
+ For more details, run «needrestart -m a».
+Description-cs.UTF-8: Tento systém je spuštěný s ${EHINT} – měli byste zvážit restart!
+ Další informace získáte spuštěním „needrestart -m a“.
+Description-de.UTF-8: Das System verwendet ${EHINT} - ein Neustart sollte durchgeführt werden.
+ Der Befehl »needrestart -m a« zeigt mehr Details.
+Description-ru.UTF-8: Эта система использует ${EHINT} - запланируйте перезагрузку!
+ Для получения подробностей выполните «needrestart -m a».
+
+Template: needrestart/ui-ucode_title
+Type: title
+Description: Outdated processor microcode
+Description-cs.UTF-8: Zastaralý mikrokód procesoru
+Description-de.UTF-8: Veralteter Prozessor Mikrocode
+
+Template: needrestart/ui-ucode_announce
+Type: note
+Description: Processor microcode update
+ The currently running processor microcode revision is ${CURRENT} which is not
+ the expected microcode revision ${AVAIL}.
+ .
+ Restarting the system to load the new processor microcode will not be handled
+ automatically, so you should consider rebooting.
+Description-cs.UTF-8: Aktualizace mikrokódu procesoru
+ Nyní provozovaná revize mikrokódu procesoru je ${CURRENT}, což není očekávaná revize ${AVAIL}.
+ .
+ Restart systému pro načtení nového mikrokódu procesoru nebude obsloužen automaticky, takže byste měli zvážit restart stroje.
+Description-de.UTF-8: Prozessor Mikrocode-Update
+ Die laufende Prozessor Mikrocode-Revision ist ${CURRENT}, es wird jedoch die Revision ${AVAIL} erwartet.
+ .
+ Das System wird nicht automatisch neu gestartet, um den neuen Prozessor Mikrocode zu laden. Ein Neustart sollte durchgeführt werden.
+
+Template: needrestart/ui-query_conts_title
+Type: title
+Description: Containers using outdated libraries
+Description-cs.UTF-8: Kontejnery používající zastaralé knihovny
+Description-de.UTF-8: Container, die veraltete Bibliotheken nutzen
+Description-ru.UTF-8: Контейнеры, использующие устаревшие библиотеки
+
+Template: needrestart/ui-query_conts
+Type: multiselect
+Choices: ${CONTS}
+Description: Which containers should be restarted?
+Description-cs.UTF-8: Které kontejnery by měly být restartovány?
+Description-de.UTF-8: Welche Container sollen neu gestartet werden?
+Description-ru.UTF-8: Какие контейнеры должны быть перезапущены?
