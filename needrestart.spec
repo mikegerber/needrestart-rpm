@@ -1,5 +1,8 @@
 Name:           needrestart
+
+# renovate: datasource=github-releases depName=liske/needrestart versioning=loose
 Version:        3.11
+
 Release:        1~mike0%{?dist}
 Summary:        Restart daemons after library updates
 
