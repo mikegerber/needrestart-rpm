@@ -1,0 +1,85 @@
+name: Build RPMs
+
+env:
+  PACKAGE_NAME: needrestart
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  srpm:
+    runs-on: ubuntu-latest
+    container: fedora:43
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install RPM and other build tools
+        run: dnf install -y rpm-build rpmdevtools spectool
+
+      - name: Set up RPM build tree
+        run: rpmdev-setuptree
+
+      - name: Download sources
+        run: |
+          spectool -g "$PACKAGE_NAME".spec
+
+      - name: Build SRPM
+        run: |
+          rpmbuild -bs "$PACKAGE_NAME".spec --define "_sourcedir $(pwd)"
+
+      - name: Upload SRPM
+        uses: actions/upload-artifact@v7
+        with:
+          name: srpm
+          path: ~/rpmbuild/SRPMS/*.src.rpm
+
+  rpm:
+    needs: srpm
+    runs-on: ubuntu-latest
+
+    container:
+      image: fedora:43
+      options: --privileged
+
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+          - fedora-43-x86_64
+          - fedora-44-x86_64
+          - fedora-45-x86_64
+          - rocky+epel-8-x86_64
+          - rocky+epel-9-x86_64
+          - rocky+epel-10-x86_64
+
+    steps:
+      - name: Install Mock
+        run: dnf install -y mock
+
+      - name: Download SRPM
+        uses: actions/download-artifact@v8
+        with:
+          name: srpm
+          path: srpm
+
+      - name: Build RPM
+        run: |
+          mock \
+            -r "${{ matrix.target }}" \
+            --resultdir result \
+            --rebuild srpm/*.src.rpm
+
+      - name: Upload RPM
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: rpm-${{ matrix.target }}
+          path: |
+            result/*.rpm
+            result/*.log
