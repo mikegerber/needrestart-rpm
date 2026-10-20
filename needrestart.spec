@@ -1,6 +1,6 @@
 Name:           needrestart
-Version:        3.8
-Release:        10%{?dist}
+Version:        3.11
+Release:        1~mike0%{?dist}
 Summary:        Restart daemons after library updates
 
 License:        GPL-2.0-or-later
@@ -116,6 +116,9 @@ echo "IUCODE_TOOL_EXTRA_OPTIONS=--ignore-broken" >%{buildroot}/%{_sysconfdir}/de
 
 
 %changelog
+* Tue Oct 20 2026 Mike Gerber <mike@mike-gerber.de> - 3.11-1~mike0
+- Update to 3.11
+
 * Thu Jul 16 2026 Fedora Release Engineering <releng@fedoraproject.org> - 3.8-10
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_45_Mass_Rebuild
 
