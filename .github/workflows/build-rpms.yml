@@ -14,7 +14,7 @@ permissions:
 jobs:
   srpm:
     runs-on: ubuntu-latest
-    container: fedora:43
+    container: fedora:46
 
     steps:
       - uses: actions/checkout@v7
@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: fedora:43
+      image: fedora:46
       options: --privileged
 
     strategy:
