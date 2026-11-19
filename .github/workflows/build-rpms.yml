@@ -14,7 +14,7 @@ permissions:
 jobs:
   srpm:
     runs-on: ubuntu-latest
-    container: fedora:43
+    container: fedora:45
 
     steps:
       - uses: actions/checkout@v7
@@ -44,16 +44,16 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: fedora:43
+      image: fedora:45
       options: --privileged
 
     strategy:
       fail-fast: false
       matrix:
         target:
-          - fedora-43-x86_64
           - fedora-44-x86_64
           - fedora-45-x86_64
+          - fedora-46-x86_64
           - rocky+epel-8-x86_64
           - rocky+epel-9-x86_64
           - rocky+epel-10-x86_64
